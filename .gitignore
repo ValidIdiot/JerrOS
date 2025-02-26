@@ -1,0 +1,9 @@
+iso/*
+obj/*
+include/test_elf.h
+include/elf.h
+src/elf_loader.c
+test/*
+.vscode/*
+JerrOS.iso
+Doxyfile

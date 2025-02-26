@@ -1,0 +1,159 @@
+<!-- ?xml version='1.0' encoding='UTF-8'? -->
+<link href="/github-markdown-css/github-css.css" rel="stylesheet" />
+<meta charset="utf-8" content="text/html" />
+<div class="gist">
+  <style class="formula-style">
+    svg.gh-md-to-html-formula {
+      fill: black;
+    }
+  </style>
+  <div class="gist-file">
+    <!-- This is the class that is responsible for the boxing! -->
+    <div class="gist-data">
+      <div
+        class="js-gist-file-update-container js-task-list-container file-box"
+      >
+        <div class="file" id="user-content-article-README">
+          <div
+            class="Box-body readme blob js-code-block-container p-5 p-xl-6"
+            id="user-content-file-docker-image-pull-md-readme"
+            style="
+              margin-left: 40px;
+              margin-right: 40px;
+              margin-top: 20px;
+              margin-bottom: 20px;
+            "
+          >
+            <article
+              class="markdown-body entry-content container-lg"
+              itemprop="text"
+            >
+              <div class="markdown-heading">
+                <h1 class="heading-element"><code>loading</code></h1>
+                <a
+                  aria-label="Permalink: loading"
+                  class="anchor"
+                  href="#user-content-loading"
+                  id="user-content-loading"
+                  name="user-content-loading"
+                  ><span aria-hidden="true" class="octicon octicon-link"></span
+                ></a>
+              </div>
+              <p>
+                is a module that contains functions for creating and managing
+                loading bars.
+              </p>
+              <p>Here is a basic implementation of a loading bar:</p>
+              <div class="highlight highlight-source-python">
+                <pre><span class="pl-k">from</span> <span class="pl-s1">loading</span> <span class="pl-k">import</span> <span class="pl-v">LoadingBar</span>
+<span class="pl-k">import</span> <span class="pl-s1">time</span>
+
+<span class="pl-c"># Make a default function to be called when the loading is complete</span>
+<span class="pl-k">def</span> <span class="pl-en">on_finish</span>():
+    <span class="pl-en">print</span>(<span class="pl-s">"Loading complete!"</span>)
+<span class="pl-c"># Create a loading bar with a length of 50, a total of 100, and using the default characters</span>
+<span class="pl-s1">total</span> <span class="pl-c1">=</span> <span class="pl-c1">100</span>
+<span class="pl-s1">bar</span> <span class="pl-c1">=</span> <span class="pl-en">LoadingBar</span>(<span class="pl-c1">50</span>, <span class="pl-s1">total</span>, <span class="pl-s1">on_finish</span>)
+
+<span class="pl-k">for</span> <span class="pl-s1">i</span> <span class="pl-c1">in</span> <span class="pl-en">range</span>(<span class="pl-s1">total</span>):
+    <span class="pl-s1">bar</span>.<span class="pl-c1">update</span>(<span class="pl-s1">i</span><span class="pl-c1">+</span><span class="pl-c1">1</span>)
+    <span class="pl-s1">time</span>.<span class="pl-c1">sleep</span>(<span class="pl-c1">0.1</span>)
+
+<span class="pl-c"># Output:</span>
+<span class="pl-c">#[██████████████████████████████████████████████████] 100/100 (100%)</span></pre>
+              </div>
+              <div class="markdown-heading">
+                <h2 class="heading-element">Installation</h2>
+                <a
+                  aria-label="Permalink: Installation"
+                  class="anchor"
+                  href="#user-content-installation"
+                  id="user-content-installation"
+                  name="user-content-installation"
+                  ><span aria-hidden="true" class="octicon octicon-link"></span
+                ></a>
+              </div>
+              <p>
+                Because our module is compatible with most operating systems, we
+                have one simple method of installing.
+              </p>
+              <div class="markdown-heading">
+                <h3 class="heading-element">Step 1:</h3>
+                <a
+                  aria-label="Permalink: Step 1:"
+                  class="anchor"
+                  href="#user-content-step-1"
+                  id="user-content-step-1"
+                  name="user-content-step-1"
+                  ><span aria-hidden="true" class="octicon octicon-link"></span
+                ></a>
+              </div>
+              <p>Clone the repository via <em>git</em>:</p>
+              <div class="highlight highlight-source-shell">
+                <pre><span class="pl-c"><span class="pl-c">#</span> In terminal:</span>
+$ git clone git@github.com:ValidIdiot/loading-v1</pre>
+              </div>
+              <p>
+                Alternatively, if you have not set up <em>ssh</em> with
+                <em>git</em> (which I would recommend), you can run:
+              </p>
+              <div class="highlight highlight-source-shell">
+                <pre>$ git clone https://github.com/ValidIdiot/loading-v1</pre>
+              </div>
+              <p>Lastly, we <em>cd</em> into the cloned repo:</p>
+              <div class="highlight highlight-source-shell">
+                <pre>$ <span class="pl-c1">cd</span> loading-v1</pre>
+              </div>
+              <div class="markdown-heading">
+                <h3 class="heading-element">Step 2:</h3>
+                <a
+                  aria-label="Permalink: Step 2:"
+                  class="anchor"
+                  href="#user-content-step-2"
+                  id="user-content-step-2"
+                  name="user-content-step-2"
+                  ><span aria-hidden="true" class="octicon octicon-link"></span
+                ></a>
+              </div>
+              <p>
+                The only required dependency is
+                <a href="https://github.com/tartley/colorama"
+                  ><code>colorama</code></a
+                >. It is a great module for ANSI color-coding in compatible
+                terminals.
+              </p>
+              <div class="highlight highlight-source-shell">
+                <pre><span class="pl-c"><span class="pl-c">#</span> In terminal:</span>
+$ pip install colorama </pre>
+              </div>
+              <p>
+                In our module, <code>colorama</code> is used for formatting of
+                the loading bar (if enabled upon class initialization).
+              </p>
+              <div class="markdown-heading">
+                <h3 class="heading-element">Step 3:</h3>
+                <a
+                  aria-label="Permalink: Step 3:"
+                  class="anchor"
+                  href="#user-content-step-3"
+                  id="user-content-step-3"
+                  name="user-content-step-3"
+                  ><span aria-hidden="true" class="octicon octicon-link"></span
+                ></a>
+              </div>
+              <p>Now, we can actually install <code>loading</code>.</p>
+              <div class="highlight highlight-source-shell">
+                <pre><span class="pl-c"><span class="pl-c">#</span> In terminal:</span>
+$ pip install <span class="pl-c1">.</span></pre>
+              </div>
+              <p>
+                This will now install <code>loading</code> as a Python module on
+                your machine.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

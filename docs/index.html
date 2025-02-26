@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My README</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("pre code").forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
+    <style>
+        body {
+            color-scheme: dark;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            margin-left: 10px;
+            color: #c9d1d9;
+            background-color: #0d1117;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+                Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            font-size: 16px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        /* VS Code Dark+ for Highlight.js */
+        .hljs {
+            background: #1E1E1E;
+            color: #D4D4D4;
+        }
+
+        /* Comments */
+        .hljs-comment {
+            color: #6A9955;
+            font-style: italic;
+        }
+
+        /* Keywords */
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-literal,
+        .hljs-name {
+            color: #569CD6;
+        }
+
+        /* Strings */
+        .hljs-string,
+        .hljs-meta-string {
+            color: #CE9178;
+        }
+
+        /* Numbers */
+        .hljs-number {
+            color: #B5CEA8;
+        }
+
+        /* Functions */
+        .hljs-title {
+            color: #DCDCAA;
+        }
+
+        /* Operators */
+        .hljs-operator {
+            color: #D4D4D4;
+        }
+
+        /* Built-ins & Constants */
+        .hljs-built_in,
+        .hljs-class {
+            color: #4EC9B0;
+        }
+
+        /* Punctuation */
+        .hljs-punctuation {
+            color: #D4D4D4;
+        }
+
+        /* Types */
+        .hljs-type {
+            color: #4EC9B0;
+        }
+
+        /* Variables */
+        .hljs-variable {
+            color: #9CDCFE;
+        }
+
+        /* Tags */
+        .hljs-tag {
+            color: #569CD6;
+        }
+
+        /* Attributes */
+        .hljs-attr {
+            color: #9CDCFE;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="markdown-body">
+        <h1 id="jerros">JerrOS</h1>
+        <h3 id="a-simple-x86-operating-system">A simple x86 operating system</h3>
+        <h2 id="about-jerros">About JerrOS</h2>
+        <h3 id="how-is-it-written-">How is it Written?</h3>
+        <p>Because of my incompetence to achieve good programming skills, I had to resort to ChatGPT to write assembly
+            code and pointer stuff (yes, I am still not good with pointers). However, JerrOS comes packed with a shell
+            and a custom stdlib (if you have the patience to compile it properly), and I wrote the C for it :D. </p>
+        <h3 id="incomplete-stuff">Incomplete Stuff</h3>
+        <p>Previously, I tried to add support for running ELF executables, but it failed miserably. At least it gave me
+            a reason to have <code>jerrlib.a</code> even be a thing. That is why you see many &quot;NOT FUNCTIONAL&quot;
+            comments in the source code.</p>
+        <h3 id="is-this-all-just-chatgpt-">Is This all Just ChatGPT?</h3>
+        <p>Sort of, but not quite. Here is a list of what ChatGPT did:</p>
+        <ul>
+            <li>Build stuff (Makefile, linker.ld, grub.cfg, etc.)</li>
+            <li>Assembly code</li>
+            <li>Pointers/Memory management in code</li>
+            <li>Very specific hex values</li>
+        </ul>
+        <p>That&#39;s only 4 things, meanwhile I&#39;m over here writing a whole standard library. TL;DR
+            <strong>NO!</strong>
+        </p>
+        <h2 id="running-it">Running It</h2>
+        <p>Running JerrOS is quite simple. Ensure you have <a
+                href="https://gitlab.com/qemu-project/qemu"><code>qemu</code></a> installed (specifically the i386
+            version, because that is what JerrOS runs on):</p>
+        <h3 id="debian">Debian</h3>
+        <pre><code class="lang-bash"><span class="hljs-symbol">$</span> sudo apt install qemu-<span class="hljs-keyword">system</span>-i386
+</code></pre>
+        <h3 id="arch">Arch</h3>
+        <pre><code class="lang-bash"><span class="hljs-variable">$ </span>sudo pacman -S qemu
+</code></pre>
+        <h3 id="fedora">Fedora</h3>
+        <pre><code class="lang-bash"><span class="hljs-symbol">$</span> sudo dnf install qemu-<span class="hljs-keyword">system</span>-i386
+</code></pre>
+        <h3 id="macos">macOS</h3>
+        <pre><code class="lang-bash">$ <span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>qemu
+</code></pre>
+        <h3 id="windows">Windows</h3>
+        <p>get a linux computer.</p>
+        <hr>
+        <p>Once that is completed, we can make and run.</p>
+        <pre><code class="lang-bash">$ make
+$ chmod +x <span class="hljs-keyword">run</span>.<span class="bash">sh
+</span>$ ./<span class="hljs-keyword">run</span>.<span class="bash">sh</span>
+</code></pre>
+        <p>And there you have it! JerrOS running in all its glory.</p>
+</body>
+
+</html>
